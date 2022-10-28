@@ -1,4 +1,4 @@
-namespace WinFormsTovarLesson3
+п»їnamespace WinFormsTovarLesson3
 {
     public partial class Form1 : Form
     {
@@ -15,10 +15,10 @@ namespace WinFormsTovarLesson3
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == -1)// Если товар
-                                             // не выбран
+            if (listBox1.SelectedIndex == -1)// Р•СЃР»Рё С‚РѕРІР°СЂ
+                                             // РЅРµ РІС‹Р±СЂР°РЅ
             {
-                MessageBox.Show("Вы не выбрали товар");
+                MessageBox.Show("Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё С‚РѕРІР°СЂ");
                 return;
             }
             listBox1.Items.RemoveAt(listBox1.SelectedIndex);
@@ -26,25 +26,25 @@ namespace WinFormsTovarLesson3
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == -1)// Если товар
-                                             // не выбран
+            if (listBox1.SelectedIndex == -1)// Р•СЃР»Рё С‚РѕРІР°СЂ
+                                             // РЅРµ РІС‹Р±СЂР°РЅ
             {
-                MessageBox.Show("Вы не выбрали товар");
+                MessageBox.Show("Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё С‚РѕРІР°СЂ");
                 return;
             }
-            int n = listBox1.SelectedIndex;// запоминаем
-                                           // выделенный элемент
-                                           // Забираем ссылку на выделенный элемент
+            int n = listBox1.SelectedIndex;// Р·Р°РїРѕРјРёРЅР°РµРј
+                                           // РІС‹РґРµР»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚
+                                           // Р—Р°Р±РёСЂР°РµРј СЃСЃС‹Р»РєСѓ РЅР° РІС‹РґРµР»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚
             t = (Tovar)listBox1.Items[n];
             Form2 editform = new Form2(t, false);
             editform.ShowDialog();
-            listBox1.Items.RemoveAt(n); // Удаляем
-                                        // выделенный элемент
-            /* и добавляем его снова в ту же позицию,
-            чтобы он перерисовался в списке */
+            listBox1.Items.RemoveAt(n); // РЈРґР°Р»СЏРµРј
+                                        // РІС‹РґРµР»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚
+            /* Рё РґРѕР±Р°РІР»СЏРµРј РµРіРѕ СЃРЅРѕРІР° РІ С‚Сѓ Р¶Рµ РїРѕР·РёС†РёСЋ,
+            С‡С‚РѕР±С‹ РѕРЅ РїРµСЂРµСЂРёСЃРѕРІР°Р»СЃСЏ РІ СЃРїРёСЃРєРµ */
             listBox1.Items.Insert(n, t);
             listBox1.SelectedIndex = n;
-            // Снова выделяем этот элемент
+            // РЎРЅРѕРІР° РІС‹РґРµР»СЏРµРј СЌС‚РѕС‚ СЌР»РµРјРµРЅС‚
 
         }
 
@@ -53,17 +53,17 @@ namespace WinFormsTovarLesson3
             t = new Tovar();
             Form2 addform = new Form2(t, true);
             if (addform.ShowDialog() == DialogResult.OK)
-            {// если пользователь нажал ок, добавляем
-             // товар в список
+            {// РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅР°Р¶Р°Р» РѕРє, РґРѕР±Р°РІР»СЏРµРј
+             // С‚РѕРІР°СЂ РІ СЃРїРёСЃРѕРє
                 listBox1.Items.Add(t);
             }
         }
     }
     public class Tovar
     {
-        string name; //название товара
-        string made_in; //страна производитель
-        double price; //цена
+        string name; //РЅР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°
+        string made_in; //СЃС‚СЂР°РЅР° РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ
+        double price; //С†РµРЅР°
         public string Name
         {
             get { return name; }
@@ -80,7 +80,7 @@ namespace WinFormsTovarLesson3
             set
             {
                 if (price < 0)
-                    throw new System.Exception("Цена не может быть меньше нуля");
+                    throw new System.Exception("Р¦РµРЅР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ РЅСѓР»СЏ");
 
                 price = value;
             }
@@ -96,8 +96,8 @@ namespace WinFormsTovarLesson3
         }
         public override string ToString()
         {
-            return Name + " Изготовитель: " + Made_in +
-            " Цена: " + Price;
+            return Name + " РР·РіРѕС‚РѕРІРёС‚РµР»СЊ: " + Made_in +
+            " Р¦РµРЅР°: " + Price;
         }
     }
 }
